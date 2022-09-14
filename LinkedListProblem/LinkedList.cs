@@ -46,6 +46,7 @@ namespace LinkedListProblem
             }
         }
         //UC3
+        //Append the LinkedList
         public void Append(int data)
         {
             Node node = new Node(data);
@@ -63,7 +64,33 @@ namespace LinkedListProblem
                 node1.next = node;
             }
             Console.WriteLine("{0} appended into linked list",node.data);
-        }     
+        }
+        //UC4
+        //Insert 30 elements in middle LinkedList
+        public void InsertAtGivenPosition(int position, int data)
+        {
+            Node node = new Node(data);
+            if (position < 1)
+            {
+                Console.WriteLine("Invalid Position");
+            }
+            else if (position == 1)
+            {
+                node.next = head;
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while (position > 2)
+                {
+                    temp = temp.next;
+                    position--;
+                }
+                node.next = temp.next;
+                temp.next = node;
+            }
+        }
         internal void Display()
         {
             Node temp = this.head;
